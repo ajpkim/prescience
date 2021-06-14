@@ -15,9 +15,7 @@ setup(
     ],
     entry_points = {
         'console_scripts': [
-            'prescience = make_prediction:main',
-            'prescience-resolve = resolve:main',
-            'prescience-stats = view_stats:main',
+            'prescience = main:main'
         ]
     },
 )
