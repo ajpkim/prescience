@@ -7,7 +7,7 @@ setup(
     author="Alex Kim",
     author_email="alexjpkim@protonmail.com",
     description='Track and improve predictions',
-    py_modules=["prediction"],
+    # py_modules=["prescience"],
     package_dir={'': 'src'},
     classifiers=[
         "Programming Langauge :: Python :: 3",
