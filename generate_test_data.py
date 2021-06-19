@@ -20,7 +20,7 @@ def main(resolved_rows=500, unresolved_rows=10):
         for row in range(resolved_rows):
             prediction_date = add_time_noise(date).strftime(DATETIME_FMT)
             event = f"Test prediction #{row}"
-            prediction = random.randint(1,99)
+            prediction = random.randint(25,75)
             result = random.randint(0,1)
             result_date = add_time_noise(date,days=3).strftime(DATETIME_FMT)
             f.write(f"{prediction_date},{event},{prediction},{result_date},{result}\n")
@@ -31,7 +31,7 @@ def main(resolved_rows=500, unresolved_rows=10):
         for row in range(unresolved_rows):
             prediction_date = add_time_noise(date).strftime(DATETIME_FMT)
             event = f"Unresolved test prediction #{row}"
-            prediction = random.randint(0,100)
+            prediction = random.randint(1,99)
             result = ''
             result_date = add_time_noise(date,days=3).strftime(DATETIME_FMT)
             f.write(f"{prediction_date},{event},{prediction},{result_date},{result}\n")

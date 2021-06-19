@@ -1,7 +1,7 @@
 import pdb
 import argparse
 
-from prescience import make_prediction, resolve_predictions, view_stats
+from prescience import make_prediction, resolve_predictions, view_stats, import_data
 
 def main():
     parser = argparse.ArgumentParser()
@@ -16,6 +16,10 @@ def main():
     resolve_parser = subparser.add_parser('resolve', help='Resolve pending predictions')
     stats_parser = subparser.add_parser('stats', help='View stats')
 
+    import_parser = subparser.add_parser('import', help='Load csv')
+    import_parser.add_argument('filename', help="csv file to import")
+
+
     args = parser.parse_args()
 
     if args.command == 'predict':
@@ -26,6 +30,9 @@ def main():
 
     if args.command == 'stats':
         view_stats(**vars(args))
+
+    if args.command == 'load':
+        import_data(args.filename)
 
 if __name__ == '__main__':
     main()

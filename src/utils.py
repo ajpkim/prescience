@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from models import Prediction
 
-engine = create_engine('sqlite+pysqlite:///testing.db', echo=True)
+engine = create_engine('sqlite+pysqlite:///data/testing.db', echo=True)
 
 
 def print_db_rows():
@@ -26,4 +26,3 @@ def load_csv(file):
                                     )
             session.add(prediction)
         session.commit()
-

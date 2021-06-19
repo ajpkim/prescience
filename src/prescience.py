@@ -9,7 +9,8 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 
 from models import Prediction
-from plotting import *
+from stats import plot_default
+from utils import load_csv
 
 engine = create_engine('sqlite+pysqlite:///testing.db', echo=True)
 
@@ -43,9 +44,8 @@ def resolve_predictions(*args, **kwargs):
 
 ## TODO add various paths for stat viewing beyond default graph
 def view_stats(*args, **kwargs):
+    plot_default()
 
-    stmt = "SELECT * FROM prediction WHERE result IS NOT NULL"
-    df = pd.read_sql(stmt, engine, index_col='id')
-    coordinates = get_default_graph_coords(df)
-
-    breakpoint()
+## TODO support other data types
+def import_data(file):
+    load_csv(file)

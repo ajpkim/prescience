@@ -1,0 +1,12 @@
+set terminal dumb ansirgb
+set title "Prediction % vs Observed %"
+unset key
+set xlabel "Predicted %"
+set ylabel "Actual %"
+set xrange [-5:105]
+set yrange [-5:105]
+set xtics 0,10,100
+set ytics 0,10,100
+plot "/tmp/prescience.dat" u 1:2:3 with filledcurves above ls 5,\
+"/tmp/prescience.dat" u 1:2:3 with filledcurves below ls 3,\
+"/tmp/prescience.dat" u 1:2 ls 2 pt "$"
